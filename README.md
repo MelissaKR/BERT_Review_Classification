@@ -1,4 +1,5 @@
-# BERT_Review_Classification
+# BERT Petfood Review Classification
+
 Using the petfood review data from "Amazon Pet Products Reviews" and critical reviews scraped from Chewy.com (detailed in [SmartRev](https://github.com/MelissaKR/SmartRev) project), a BERT classification model using TF Hub BERT module with TensorFlow is structured and deployed on Google AI Platform, with special thanks to [this notebook](https://colab.research.google.com/github/google-research/bert/blob/master/predicting_movie_reviews_with_bert_on_tf_hub.ipynb).
 
 ## Training on Google AI Platform
@@ -33,6 +34,16 @@ gcloud --verbosity=debug ai-platform jobs submit training $JOBNAME \
  --batch-size=64 \
  --num_train_epochs=10.0
 ```
+
+### Requirements
+
+The model needs the following packages installed when submitted to Google AI Platform:
+- tensorflow-hub
+- bert-tensorflow
+- gcsfs
+
+The `setup.py` script handles installing these packages in the training process.
+Note that this script needs to be located in the parent directory of the model scripts.
 
 ## Deployment
 
